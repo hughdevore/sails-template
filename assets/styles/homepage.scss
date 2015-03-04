@@ -21,13 +21,7 @@ h1 {
 // *       LOGIN       *
 // *********************
 
-#login-container {
-	position: absolute;
-	margin: 0 auto;
-	margin-right: 10%;
-	width: 50%;
-}
-#login-form {
+.form {
 	width: 300px;
 	display: block;
 	text-align: left;

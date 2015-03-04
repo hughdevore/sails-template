@@ -1,24 +1,15 @@
 <h1>Register</h1>
-<form id="login-form">
-		<div>
-			<label for="email">Email:</label><br>
-			<input class="input" type="text" id="email" placeholder="Email">
-		</div>
+	<form class="form" ng-submit="register(credentials)" novalidate>
+		<label ng-class="error.identifier ? 'error' : ''">
+			<input class="input" type="text" placeholder="Email" ng-model="credentials.identifier">
+			<p class="error" ng-bind="error.identifier"></p>
+		</label>
 
-		<div>
-			<label for="password">Password:</label><br>
-			<input id="password" class="input" type="text" value="" name="password">
-		</div>
+		<label ng-class="error.password ? 'error' : ''">
+			<input class="input" type="password" placeholder="Password" ng-model="credentials.password">
+			<p class="error" ng-bind="error.password"></p>
+		</label>
 		
-		<div class="submit">
-			<input type="submit" value="Submit" ui-sref="home">
-		</div>
+		<button type="submit">Register</button>
 		
 	</form>
-
-	<div>
-		<a class="anchor" ui-sref="register">
-			<button class="button">Register</button>
-		</a>
-	</div>
-</form>

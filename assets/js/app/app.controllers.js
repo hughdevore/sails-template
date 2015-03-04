@@ -1,23 +1,47 @@
-angular.module('app.controllers',[])
-.controller('loginCtrl', function($scope, $state){
-	$scope.goLogin = function() {
+angular.module('app.controllers',['app.services'])
+.controller('homeCtrl', function($scope) {
 
-
-		console.log({
-    		identifier: 'aaron@theironyard.com',
-    		password: 'password123'
-			});
-
-		$state.go('login');
-	}
 })
-.controller('registerCtrl', function($scope, $state){
-	$scope.goRegister = function() {
-		$state.go('register');
-	}
+.controller('registerCtrl', function($scope, Validate){
+	$scope.error = {
+		identifier: '',
+		password: ''
+	};
+	$scope.credentials = {
+		identifier: '',
+		password: ''
+	};
+
+	$scope.register = function(credentials) {
+		$scope.error = Validate.credentials(credentials);
+
+		if(!Validate.hasError($scope.error)) {
+			var registerObj = {
+				username: credentials.identifier,
+				email: credentials.identifier,
+				password: credentials.password
+			};
+			console.log(registerObj);
+		}
+	};
 })
-.controller('homeCtrl', function($scope, $state){
-	$scope.goHome = function() {
-		$state.go('home');
-	}
+.controller('loginCtrl', function($scope, Validate) {
+	$scope.error = {
+		identifier: '',
+		password: ''
+	};
+	$scope.credentials = {
+		identifier: '',
+		password: ''
+	};
+
+	$scope.login = function(credentials) {
+		$scope.error = Validate.credentials(credentials);
+
+		if(!Validate.hasError($scope.error)) {
+			console.log(credentials)
+		}
+	};
 });
+
+
