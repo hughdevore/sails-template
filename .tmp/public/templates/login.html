@@ -1,0 +1,15 @@
+<h1>Login</h1>
+	<form class="form" ng-submit="login(credentials)" id="login-form">
+		<label ng-class="error.identifier ? 'error' : ''">
+			<input class="input" type="text" placeholder="Email" ng-model="credentials.identifier">
+			<p class="error" ng-bind="error.identifier"></p>
+		</label>
+
+		<label ng-class="error.password ? 'error' : ''">
+			<input class="input" type="password" placeholder="Password" ng-model="credentials.password">
+			<p class="error" ng-bind="error.password"></p>
+		</label>
+		
+		<button type="submit">Login</button>
+		
+	</form>

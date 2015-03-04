@@ -13,33 +13,22 @@
  * always omit, customize, or replace this behavior with SASS, SCSS,
  * or any other Grunt tasks you like.)
  */
-body {
-  font-size: 1em;
-  background-color: black; }
 
-h1 {
-  text-align: center;
-  font-size: 4em;
-  color: white; }
 
-.form {
-  width: 300px;
-  display: block;
-  text-align: left;
-  background-color: gray;
-  border-radius: 5px;
-  padding: 2em;
-  margin: 10% auto; }
 
-.input {
-  padding: 0.5em;
-  margin-left: 2em;
-  margin: 1em; }
+// For example:
+//
+// @import 'variables/colors.scss';
+// @import 'mixins/foo.scss';
+// @import 'mixins/bar.scss';
+// @import 'mixins/baz.scss';
+//
+// @import 'styleguide.scss';
+// @import 'pages/login.scss';
+// @import 'pages/signup.scss';
+//
+// etc.
 
-.button {
-  font-size: 1em;
-  margin: 0.5em;
-  border-radius: 10px;
-  background-color: #24b5d1; }
+@import 'homepage.scss';
 
-/*# sourceMappingURL=importer.css.map */
+
