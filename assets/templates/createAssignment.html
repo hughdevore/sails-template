@@ -1,0 +1,18 @@
+<section id="create-assignment">
+	<h1>Create an Assignment</h1>
+		<form class="form" ng-submit="assign(assignment)" novalidate>
+		<p class="error" ng-repeat="errorMessage in error.generic" ng-bind="errorMessage"></p>
+			<label ng-class="error.name ? 'error' : ''">
+				<input class="input" type="text" placeholder="Assignment Name" ng-model="assignment.name">
+				<p class="error" ng-bind="error.name"></p>
+			</label>
+
+			<label ng-class="error.url ? 'error' : ''">
+				<input class="input" type="url" placeholder="Assignment URL" ng-model="assignment.url">
+				<p class="error" ng-bind="error.url"></p>
+			</label>
+			
+			<button type="submit">Create</button>
+			
+		</form>
+</section>

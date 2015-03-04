@@ -1,8 +1,8 @@
-angular.module('app.controllers',['app.services'])
-.controller('homeCtrl', function($scope) {
+angular.module('app.controllers', ['app.services'])
+.controller('HomeCtrl', function($scope) {
 
 })
-.controller('registerCtrl', function($scope, Validate){
+.controller('RegisterCtrl', function($scope, $state, $http, Validate){
 	$scope.error = {
 		identifier: '',
 		password: ''
@@ -22,10 +22,26 @@ angular.module('app.controllers',['app.services'])
 				password: credentials.password
 			};
 			console.log(registerObj);
+			
+			$http.post('/auth/local/register', registerObj)
+			.success(function(response) {
+				console.log('Success!');
+				console.log(response);
+
+				if(res.success){
+					$state.go('home');
+				} else {
+					$scope.error.generic = res.errors;
+				}
+			})
+			.error(function(err){
+				console.log('ERROR!!!');
+				console.log(err);
+			})
 		}
 	};
 })
-.controller('loginCtrl', function($scope, Validate) {
+.controller('LoginCtrl', function($scope, $state, $http, Validate) {
 	$scope.error = {
 		identifier: '',
 		password: ''
@@ -35,13 +51,57 @@ angular.module('app.controllers',['app.services'])
 		password: ''
 	};
 
-	$scope.login = function(credentials) {
-		$scope.error = Validate.credentials(credentials);
+	$scope.login = function(htmlCredentials) {
+		$scope.error = Validate.credentials(htmlCredentials);
 
 		if(!Validate.hasError($scope.error)) {
-			console.log(credentials)
+			$http.post('/auth/local', htmlCredentials)
+			.success(function(response) {
+				console.log('Success!');
+				console.log(response);
+
+				if(response.success){
+					$state.go('home');
+				} else {
+					$scope.error.generic = response.errors;
+				}
+			})
+			.error(function(err){
+				console.log('ERROR!!!');
+				console.log(err);
+			})
+		}
+	};
+})
+.controller('CreateAssignmentCtrl', function($scope, $state, $http, Validate) {
+	$scope.error = {
+		name: '',
+		url: ''
+	};
+	$scope.assignment = {
+		name: '',
+		url: ''
+	};
+
+	$scope.assign = function(assignment) {
+		$scope.error = Validate.assigned(assignment);
+
+		if(!Validate.hasError($scope.error)) {
+			$http.post('/auth/local', assignment)
+			.success(function(response) {
+				console.log('Success!');
+				console.log(response);
+
+				if(response.success){
+					$state.go('home');
+				} else {
+					$scope.error.generic = response.errors;
+				}
+			})
+			.error(function(err){
+				console.log('ERROR!!!');
+				console.log(err);
+			})
 		}
 	};
 });
-
-
