@@ -1,0 +1,26 @@
+<div id="login-container" ng-controller="loginCtrl">
+
+	<form id="login-form">
+		<div>
+			<label for="email">Email:</label><br>
+			<input class="input" type="text" id="email" placeholder="Email">
+		</div>
+
+		<div>
+			<label for="password">Password:</label><br>
+			<input id="password" class="input" type="text" value="" name="password">
+		</div>
+		
+		<div class="submit">
+			<input type="submit" value="Submit" ui-sref="home">
+		</div>
+		
+	</form>
+
+	<div>
+		<a class="anchor" ui-sref="register">
+			<button class="button">Register</button>
+		</a>
+	</div>
+
+<div>
