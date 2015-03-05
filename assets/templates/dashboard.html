@@ -1,0 +1,15 @@
+<h1>Assignment Dashboard</h1>
+
+<table id="dashboard-table">
+	<tr>
+	    <th>Assignment</th>
+	    <th>URL</th>
+	    <th>Due Date</th>
+	    <th>Due Time</th>
+	  </tr>
+	  <tr ng-repeat="assignment in assignments">
+	    <td>{{ assignment.name }}</td>
+	    <td><a ng-href={{ assignment.url }}>Link</a></td>
+	    <td>{{ assignment.date }}</td>
+	  </tr>
+</table>

@@ -1,10 +1,12 @@
 <div ng-app="app">
-	<nav>
-		<section>
-			<a href="#" ui-sref-active="active" ui-sref="home"><span>Home</span></a>
-			<a href="#" ui-sref-active="active" ui-sref="login"><span>Login</span></a>
-			<a href="#" ui-sref-active="active" ui-sref="register"><span>Register</span></a>
-			<a href="#" ui-sref-active="active" ui-sref="createAssign"><span>Create Assignment</span></a>
+	<nav ng-controller="NavCtrl">
+		<section id="nav-bar">
+			<a class="nav" href="#" ui-sref-active="active" ui-sref="home"><span>Home</span></a>
+			<a class="nav" href="#" ui-sref-active="active" ui-sref="login"><span>Login</span></a>
+			<a class="nav" href="#" ui-sref-active="active" ui-sref="register"><span>Register</span></a>
+			<a class="nav" href="#" ui-sref-active="active" ui-sref="createAssign"><span>Create Assignment</span></a>
+			<a class="nav" href="#" ui-sref-active="active" ui-sref="dashboard"><span>Dashboard</span></a>
+			<a class="nav" href="#" ng-click="logout()"><span>Logout</span></a>
 		</section>
 	</nav>
 	<main ui-view></main>

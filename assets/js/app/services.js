@@ -32,12 +32,18 @@ angular.module('app.services', [])
 			return false;
 		},
 
-		assigned: function(assignment) {
+		assignment: function(assignment) {
 			var error = {
+				name: '',
 				url: '',
-				name: ''
+				dueDate: '',
+				dueTime: ''
 			};
 			
+			// If url property of credentials object above = falsey (null, undefined, 0)
+			if(!assignment.name) {
+				error.name = 'You must enter an assigment name.'
+			}
 			// If url property of credentials object above = falsey (null, undefined, 0)
 			if(!assignment.url) {
 				error.url = 'Enter a link to the assignment.';
@@ -47,9 +53,18 @@ angular.module('app.services', [])
 			else if(!validator.isURL(assignment.url)) {
 				error.url = 'You must enter a valid URL.';
 			}
-			// If url property of credentials object above = falsey (null, undefined, 0)
-			if(!assignment.name) {
-				error.name = 'You must enter an assigment name.'
+			// If 
+			if(!_.isDate(assignment.dueDate)) {
+				error.dueDate = 'You must enter a valid due date.';
+			}
+			else {
+				var dueDate = moment(assignment.dueDate);
+				dueDate.hour(assignment.dueTime.getHours());
+				dueDate.minute(assignment.dueTime.getMinutes());
+				dueDate.second(assignment.dueTime.getSeconds());
+				if(!dueDate.isValid()) {
+					error.dueDate = 'Invalid due date or time.';
+				}
 			}
 			return error;
 		}

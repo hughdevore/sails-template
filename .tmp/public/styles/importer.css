@@ -15,12 +15,21 @@
  */
 body {
   font-size: 1em;
-  background-color: black; }
+  background-color: #f1f1f1; }
 
 h1 {
   text-align: center;
   font-size: 4em;
-  color: white; }
+  color: black; }
+
+#nav-bar {
+  background-color: gray;
+  text-decoration: none;
+  height: 50px;
+  vertical-align: middle; }
+
+.nav {
+  margin: 1em 2em; }
 
 .form {
   width: 300px;
@@ -29,7 +38,7 @@ h1 {
   background-color: gray;
   border-radius: 5px;
   padding: 2em;
-  margin: 10% auto; }
+  margin: 3% auto; }
 
 .input {
   padding: 0.5em;

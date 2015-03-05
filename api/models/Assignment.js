@@ -8,9 +8,9 @@
 module.exports = {
 
   attributes: {
-  	name: { type: 'string', unique: true},
-  	url: {type:'string', unique: false},
-  	dueAt: {type:'datetime', unique: false}
+  	name: { type: 'string', required: true},
+  	url: {type:'string', required: true},
+  	dueAt: {type:'datetime', required: true}
   }
 };
 

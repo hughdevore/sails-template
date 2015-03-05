@@ -3,16 +3,30 @@
 		<form class="form" ng-submit="assign(assignment)" novalidate>
 		<p class="error" ng-repeat="errorMessage in error.generic" ng-bind="errorMessage"></p>
 			<label ng-class="error.name ? 'error' : ''">
+				<div class="label required">Name</div>
 				<input class="input" type="text" placeholder="Assignment Name" ng-model="assignment.name">
 				<p class="error" ng-bind="error.name"></p>
 			</label>
 
 			<label ng-class="error.url ? 'error' : ''">
+				<div class="label required">URL</div>
 				<input class="input" type="url" placeholder="Assignment URL" ng-model="assignment.url">
 				<p class="error" ng-bind="error.url"></p>
 			</label>
+
+			<label ng-class="error.dueDate ? 'error' : ''">
+				<div class="label required">Due Date</div>
+				<input class="input" type="date" placeholder="Due Date" ng-model="assignment.dueDate">
+				<p class="error" ng-bind="error.dueDate" ng-show="error.dueDate"></p>
+			</label>
+
+			<label ng-class="error.dueTime ? 'error' : ''">
+				<div class="label required">Time</div>
+				<input class="input" type="time" placeholder="Due Time" ng-model="assignment.dueTime">
+				<p class="error" ng-bind="error.dueTime" ng-show="error.dueTime"></p>
+			</label>
 			
-			<button type="submit">Create</button>
+			<button type="submit" class="btn">Create Assignment</button>
 			
 		</form>
 </section>
