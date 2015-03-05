@@ -14,7 +14,7 @@ this["JST"]["assets/templates/dashboard.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<h1>Assignment Dashboard</h1>\n\n<table id="dashboard-table">\n\t<tr>\n\t    <th>Assignment</th>\n\t    <th>URL</th>\n\t    <th>Due Date</th>\n\t    <th>Due Time</th>\n\t  </tr>\n\t  <tr ng-repeat="assignment in assignments">\n\t    <td>{{ assignment.name }}</td>\n\t    <td><a ng-href={{ assignment.url }}>Link</a></td>\n\t    <td>{{ assignment.date }}</td>\n\t  </tr>\n</table>';
+__p += '<h1>Assignment Dashboard</h1>\n\n<table id="dashboard-table">\n\t<tr>\n\t    <th>Assignment</th>\n\t    <th>URL</th>\n\t    <th>Due Date</th>\n\t  </tr>\n\t  <tr ng-repeat="assignment in assignments">\n\t    <td>{{ assignment.name }}</td>\n\t    <td><a ng-href={{ assignment.url }}>Link</a></td>\n\t    <td>{{ assignment.dueAt }}</td>\n\t  </tr>\n</table>';
 
 }
 return __p

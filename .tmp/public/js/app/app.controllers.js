@@ -130,8 +130,9 @@ angular.module('app.controllers', ['app.services'])
 		console.log(err);
 	});
 })
-.controller('NavCtrl', function($scope, $http) {
+.controller('NavCtrl', function($scope, $http, $state) {
 	$scope.logout = function() {
-		console.log('Logged out!')
+		$http.get('/logout');
+		$state.go('login');
 	}
 });
